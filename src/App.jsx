@@ -5,6 +5,7 @@ import './core-ui-css/index.css';
 import Layout from './Layout';
 import Footer from './Footer';
 import Category from './category';
+import Book from './Book';
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="App bg-black text-white min-h-screen">
       <NavbarSession /> 
-      <Layout />
+      <Book />
       <Footer />
     </div>
   )

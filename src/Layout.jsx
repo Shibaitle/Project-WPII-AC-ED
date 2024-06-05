@@ -24,11 +24,12 @@ function Layout() {
             Romantic, Action, Com-sci
           </p>
           <div className="flex items-center">
-            <button className="bg-red-900 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg mr-4">
-              อ่าน
-            </button>
+            <button className="text-center bg-green-500 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg mr-4">
+                <FaBookReader />
+              </button>
+            
             <button className="bg-black hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg">
-              ข้อมูลเพิ่มเติม
+              More info..
             </button>
           </div>
         </div>

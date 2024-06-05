@@ -41,7 +41,7 @@ const Navbar = () => {
               type="text"
               value={searchValue}
               onChange={handleInputChange}
-              placeholder="Search here. . ."
+              placeholder="Search for book. . ."
               className="px-12 py-3 rounded-full border border-white hover:ring-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button

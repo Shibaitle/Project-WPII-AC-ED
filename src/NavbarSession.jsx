@@ -55,7 +55,7 @@ const NavbarSession = ({Logout, User_image}) => {
               type="text"
               value={searchValue}
               onChange={handleInputChange}
-              placeholder="ค้นหาหนังสือ. . ."
+              placeholder="Search for book. . ."
               className="pl-5 px-12 py-3 rounded-full border border-white text-black hover:ring-blue-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             <button
@@ -71,13 +71,12 @@ const NavbarSession = ({Logout, User_image}) => {
         </form>
 
         <div className="relative">
-          <button onClick={toggleDropdown} className="flex items-center bg-red-700 px-4 py-2 rounded-full text-white font-semibold">
+          
+          <button onClick={toggleDropdown} className="flex items-center bg-red-700 px-4 py-2 rounded-md text-white font-semibold">
             <SmallCircle src={userAvatar}/>
             {/* <img src={User_image} alt="User Avatar" className="w-8 h-8 mr-2 rounded-full object-cover" /> */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ml-2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
           </button>
+
           {/*Dropdown*/}
           <div className={`absolute right-0 mt-2 w-48 bg-black shadow-lg border border-white ${isOpen ? 'block' : 'hidden'}`}>
             <a href="#" className="block px-4 py-2 text-white hover:bg-amber-500">
