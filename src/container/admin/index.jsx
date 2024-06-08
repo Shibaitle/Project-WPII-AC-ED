@@ -149,7 +149,7 @@ function Admin() {
                         <img src={`data:image/jpeg;base64,${array_basic_data.image[array_basic_data.EbookTitle.length - 1 - index]}`} className="w-full h-full object-cover mb-2 rounded-3xl shadow-md" />
                         <div className="text-black text-sm font-semibold py-1 mb-2 truncate">{array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]}</div>
                         <div className="flex justify-between">
-                            <button className="bg-red-500 anihover hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onClick={() => handleDeleteEbook(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}>Delete</button>
+                            <button className="bg-red-500 anihover hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onClick={() => { if (window.confirm("Are you sure you want to delete this book?")) {handleDeleteEbook(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]);}}}>Delete</button>
                             {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onClick={() => handleEdit(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}>ปลอม</button> */}
                             <PopupUpdateEbook
                                 onSubmit={handleSubmit_update}

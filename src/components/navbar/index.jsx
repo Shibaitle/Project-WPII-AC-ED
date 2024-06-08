@@ -49,6 +49,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex items-center">
+        
       <form onSubmit={handleSubmit} className="flex items-center mr-6 ">
           <div className="relative">
           <input

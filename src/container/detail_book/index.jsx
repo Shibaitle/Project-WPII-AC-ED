@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react'
 import { useState, useEffect} from 'react';
 import { useParams, useNavigate, Link} from 'react-router-dom';
@@ -14,7 +15,15 @@ import fetchUserInfo from "../../../api/fetch/fetchUserInfo"
 import fetchSelectBasicInfo from '../../../api/fetch/fetchSelectBasicInfo';
 import fetchArrayBasicInfo from '../../../api/fetch/fetchArrayBasicInfo';
 import { FaBookReader } from "react-icons/fa";
+import Footer from "../../components/footer";
 
+
+import {
+    BookOutlined,
+    ReadOutlined,
+    CommentOutlined,
+    HeartOutlined, 
+  } from '@ant-design/icons';
 
 import Cover from "../../../public/study.jpg";
 import Cover2 from "../../../public/happy.jpg";
@@ -185,7 +194,7 @@ const DetailEbook = () => {
         )}
         {/* ใส่เพื่อรีเซ็ต scroll mouse */}
         {select_basic_data.image !== "base64Image bra bra bra ant mai oak" &&(
-            <div className="container mx-auto p-4 bg-white">
+            <div className="container mx-auto p-4 bg-gradient-to-b from-slate-200 to-slate-400">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                     <div className='flex justify-center'>
 
@@ -200,53 +209,50 @@ const DetailEbook = () => {
                 
                     <div className="flex flex-col gap-2 mt-8">
                         <div>
-                            <h1 className="flex text-2xl font-bold text-black">{select_basic_data.EbookTitle}</h1>
-                            <p className="text-gray-600 mt-2">ผู้เขียน: {select_basic_data.author_name}</p>
-                            <p className="text-gray-600 mt-2">สำนักพิมพ์: {select_basic_data.publisher_name}</p>
-                            {/* <p className="text-gray-600">Categories:  Horror, Action, Yuri, Fantasy</p> */}
+                            <h1 className="flex text-2xl font-semibold text-black">{select_basic_data.EbookTitle}</h1>
+                            <p className="text-black font-semibold mt-2">ผู้เขียน:  <span className='text-slate-500'>{select_basic_data.author_name}</span> </p>
+                            <p className="text-black font-semibold mt-2">สำนักพิมพ์:  <span className='text-slate-500'>{select_basic_data.publisher_name}</span> </p>
+                            <div className="flex items-center gap-2 mt-2">
+                                <span className="text-black font-semibold">เรทติ้ง:</span>
+                                <span className="text-red-500 font-bold">{select_basic_data.rating}</span>
+                            </div>
+                            <p className="text-black font-semibold mt-2">ประเภทไฟล์: PDF</p>
+                            <p className="text-black font-semibold mt-2">วันที่เผยแพร่:  <span className='text-slate-500'>
+                                    {formatDate(select_basic_data.release_date)}
+                                </span>
+                            </p>
                         </div>
 
                         <div className="flex gap-4">
 
                         </div>
 
-                        {/*ตรงนี้เปลี่ยนเป็นอย่างอื่น หรือลบได้เลย ตามที่ db แสดงได้*/}
-                        <div className="flex items-center gap-2">
-                            <span className="text-gray-600">เรทติ้ง:</span>
-                            <span className="text-red-500 font-bold">{select_basic_data.rating}</span>
-                        </div>
-
-                        <div className="flex gap-2">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex gap-4">
                             <a href={`/read/${select_basic_data.EbookTitle}`}>
                                 <button
-                                className="text-center bg-green-500 hover:bg-green-700 text-white font-bold px-6 py-3 rounded-md anihover2"
+                                className="text-center bg-green-500 text-white font-bold px-6 py-3 rounded-md anihover2"
                                 >
-                                    อ่าน
+                                    [<ReadOutlined />] อ่าน
                                 </button>
                             </a>
                             <button
-                              className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded-md anihover2"
+                              className="bg-black hover:bg-black text-white font-bold py-2 px-4 rounded-md anihover2"
                               onClick={() => handleWatchList(ebook_title)}
                             >
-                                เพิ่มในรายการโปรดของคุณ
+                                [<HeartOutlined />] เพิ่มในรายการโปรดของคุณ
                             </button>
-                            {/* <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded-md">
-                                Share (ลบได้)
-                            </button> */}
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <p className="text-gray-600">ประเภทไฟล์: PDF</p>
-                            <p className="text-gray-600">วันที่เผยแพร่ {formatDate(select_basic_data.release_date)}</p>
 
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-gray-200 p-8 rounded-md mt-16 mb-4">
+                <div className="bg-gray-200 p-8 rounded-lg mt-16 mb-4">
                     <div className="flex mb-4 gap-3">
 
                     {select_basic_data.genre_1d_array.map((element, i) => (
-                        <button className="bg-slate-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded text-xs">{element}</button>
+                        <div className="bg-blue-700 text-white font-bold py-1 px-3 rounded text-xs">{element}</div>
                     ))}
 
                         {/* <button className="bg-slate-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded text-xs">Horror</button>
@@ -268,14 +274,14 @@ const DetailEbook = () => {
 
                 
 
-                <div className="flex-1 bg-white text-black p-4">
-                    <h1 className='text-2xl font-bold mb-4 mt-8 text-black'>รีวิว</h1>
+                <div className="flex-1 bg-white text-black p-8 rounded-lg">
+                    <h1 className='text-2xl font-bold mb-4 mt-2 text-black'>[<CommentOutlined />] รีวิว</h1>
                     <Comments
                                 user_data = {user_data}
                                 ebook_title = {ebook_title}
                             />
 
-                    <h2 className="text-2xl font-bold mb-4 mt-8 text-black">หนังสือใหม่</h2>
+                    <h2 className="text-2xl font-bold mb-4 mt-8 text-black"> [<BookOutlined />] หนังสือใหม่</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                         {array_basic_data.EbookTitle.map( (title, index) =>( (index < 6) ?
                             <div>
@@ -305,7 +311,7 @@ const DetailEbook = () => {
                                             <button
                                             className="text-center bg-green-500 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg mt-4 items-center"
                                             >
-                                            <FaBookReader />
+                                            <ReadOutlined />
                                             </button>
                                         </a>
                                     </div>
@@ -318,8 +324,9 @@ const DetailEbook = () => {
                     </div>
                 </div>
             </div>
+            
         )}
-        
+        <Footer/>
     </>
 
     );

@@ -109,7 +109,7 @@ function Layout() {
         <div className="bg-black min-h-screen flex flex-col">
         {/* Book Showcase Billboard */}
         <div className="h-[450px] relative">
-            <img src={`data:image/jpeg;base64,${array_basic_data.big_image}`} alt="Background" className="absolute inset-0 object-cover w-full h-full blur-lg" />
+            <img src={`data:image/jpeg;base64,${array_basic_data.big_image}`} alt="Background" className="absolute inset object-cover w-full h-full blur-lg" />
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -132,7 +132,7 @@ function Layout() {
                 )}
                 <div className="flex items-center">
                 <button
-                  className="bg-red-900 hover:bg-orange-700 text-white font-semibold px-6 py-4 rounded-lg mr-4 anihover"
+                  className="bg-green-500 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-lg mr-4 anihover"
                   onClick={() => handle_navigate_to_detail(array_basic_data.big_title)}
                 >
                     <ReadOutlined />
@@ -157,11 +157,11 @@ function Layout() {
 
 
             {/* Grid Layout */}
-            <div className="flex-1 bg-white text-black p-8">
+            <div className="flex-1 bg-gradient-to-b from-slate-200 to-slate-400 text-black p-8">
 
-            <h2 className="text-2xl font-bold mt-12 mb-4"> <BookOutlined /> หนังสือที่เพิ่มมาเมื่อเร็วๆนี้</h2>
+            <h2 className="text-2xl font-bold mt-12 mb-4"> [<BookOutlined />] หนังสือที่เพิ่มมาเมื่อเร็วๆนี้</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 blockappear border-8 p-4 border-gray-300 bg-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 blockappear border-8 p-4 border-white bg-white rounded-xl shadow-md shadow-gray-200/90">
             {array_basic_data.EbookTitle.map( (title, index) =>(index < 6 ?
                 <div className="bg-gray-300 rounded-lg shadow-lg p-8 anihover border-2 border-black">
                     <div className="w-full h-80 object-cover mb-2 relative">
@@ -199,9 +199,9 @@ function Layout() {
             {/* Divider */}
             <div className="my-12 border-2 border-slate-500"></div>
 
-            <h2 className="text-2xl font-bold mt-16 mb-4"><BookOutlined /> รวมหนังสือทั้งหมด</h2>
+            <h2 className="text-2xl font-bold mt-16 mb-4">[<BookOutlined />] รวมหนังสือทั้งหมด</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 blockappear border-8 p-4 border-gray-300 bg-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 blockappear border-8 p-4 border-white bg-white mb-12 rounded-xl shadow-md shadow-gray-200/90">
             {array_basic_data.EbookTitle.map( (title, index) =>(index >= 6 ?
                 <div className="bg-gray-300 rounded-lg shadow-lg p-8 anihover border-2 border-black">
                     <div className="w-full h-80 object-cover mb-2 relative">

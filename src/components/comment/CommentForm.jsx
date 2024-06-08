@@ -17,7 +17,7 @@ const CommentForm = ( {handleSubmit, submitLabel} ) => {
     return (
     <form onSubmit={onSubmit} aria-label="Comment form">
         <textarea
-        className="w-full h-20 mb-2 border-2 border-black-500 text-black" 
+        className="w-full h-20 mb-2 border-2 border-black-500 text-black p-4" 
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="รีวิวหนังสือเล่มนี้ . . ."
@@ -25,7 +25,7 @@ const CommentForm = ( {handleSubmit, submitLabel} ) => {
         aria-label="Comment text"
         />
         <button
-        className="text-base px-4 py-2 bg-amber-500 rounded-lg text-black hover:bg-amber-600 mb-2 cursor-pointer anihover" 
+        className="text-base px-4 py-2 bg-green-400 rounded-lg text-black hover:bg-green-700  cursor-pointer anihover" 
         disabled={isTextareaDisabled}
         type='submit'
         >

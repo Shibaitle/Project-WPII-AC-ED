@@ -3,11 +3,19 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import axios, { spread } from "axios";
 
+import {
+    PushpinTwoTone,
+    ReadOutlined, 
+  } from '@ant-design/icons';
+
 import { useNavigate } from "react-router-dom";
 
 import deleteComment from "../../../api/other/deleteComment";
 import createComment from "../../../api/other/createComment"
 import fetchComment from "../../../api/fetch/fetchComment";
+
+
+
 
 const titleColor = 'text-white dark:text-white';
 
@@ -75,7 +83,6 @@ const Comments = ({ user_data, ebook_title}) => {
 
     return (
         <div className="mt-2"> 
-        <h4 className={"text-2xl font-bold " + titleColor}>Comments</h4> 
         <CommentForm submitLabel="ส่งรีวิว" handleSubmit={addComment} />
         <div className="mt-10"> 
             {/* {backendComments.map((comment) => (
@@ -97,14 +104,14 @@ const Comments = ({ user_data, ebook_title}) => {
             {/* พอเป็น Guest login ก็จะไม่เท่าไปเองโดยอัตโนมัติ*/}
             {real_comment.text_array.map((comment, index) => ( real_comment.username_array[real_comment.text_array.length - 1 - index] === user_data.username ?
                 <div key={index}>
-                    <Comment
+                    <Comment 
                         image={real_comment.user_imagebase64_array[real_comment.text_array.length - 1 - index]}
                         text={real_comment.text_array[real_comment.text_array.length - 1 - index]}
                         username={real_comment.username_array[real_comment.text_array.length - 1 - index]}
                         date={real_comment.date_array[real_comment.text_array.length - 1 - index]}
                         user_data={user_data}
                         handleDelete={() => handleDelete(real_comment.comment_id_array[real_comment.text_array.length - 1 - index])}
-                        color={`text-red-500`}
+                        color={`text-green-500`}
                     />
                     {/* <p className="text-white">{real_comment.comment_id_array[index]}</p> */}
                 </div>
@@ -123,7 +130,7 @@ const Comments = ({ user_data, ebook_title}) => {
                         handleDelete={() => handleDelete(real_comment.comment_id_array[real_comment.text_array.length - 1 - index])}
                         color={`text-black`}
                     />
-                    {/* <p className="text-white">{real_comment.comment_id_array[index]}</p> */}
+                    {/* <p className="text-white">{real_comment.comment_id_array[index]}</p> <PushpinTwoTone /> */}
                 </div>
                 :
                 <div key={index}></div>

@@ -45,23 +45,31 @@ const Comment = ({
 
 
     return (
-    <div className="flex mb-7">
+    <div className="flex mb-4 border border-black p-4">
         <div className="mr-3"> 
         {/* <img src={`data:image/jpeg;base64,${image}`} alt="User Icon" className="rounded-full " /> */}
         <MediumCircle src={`data:image/jpeg;base64,${image}`}/>
         </div>
         <div className="w-full"> 
-            <div className="flex items-center"> 
+            <div className="flex items-center handleDelete"> 
                 <div className={`mr-2 text-xl ${color}`}>{username}</div> 
-                <div className='text-text-slate-500'>{formatDate(date)}</div>
+                <div className='text-sm text-slate-500'>({formatDate(date)})</div>
             </div>
             <div className="text-lg text-black">{text}</div>
             {username === user_data.username ? 
                 <div
-                  className="inline-block text-sm text-slate-400 cursor-pointer mt-2 underline"
-                  onClick={handleDelete}
-                >
-                    ลบข้อความรีวิว
+                  className="inline-block text-sm text-red-400 cursor-pointer mt-2 underline"
+                  onClick={() => {
+
+                                if (window.confirm("คุณแน่ใจว่าจะต้องการจะลบข้อความรีวิวนี้?")) {
+                            
+                                    handleDelete(user_data.username);
+                            
+                                }
+                        
+                              }}
+                            >
+                                ลบข้อความรีวิว
                 </div>
                 :
                 <div

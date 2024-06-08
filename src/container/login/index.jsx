@@ -66,7 +66,7 @@ function Login() {
         <div className='text-white h-[100vh] flex justify-center items-center bg-cover' style={{"backgroundImage":"url('../public/bg1.png')"}}>
             <div>
                 <div className="bg-slate-200 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative">
-                    <h1 className="text-4xl text-white font-bold text-center mb-6">Login</h1>
+                    <h1 className="text-4xl text-white font-bold text-center mb-6"></h1>
                     <form onSubmit={handleSubmit}>
                         <div className="relative my-4">
                             <input

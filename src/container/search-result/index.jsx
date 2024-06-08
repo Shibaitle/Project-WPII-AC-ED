@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -116,10 +117,10 @@ function SearchResult() {
         <div className="bg-black min-h-screen flex flex-col">
             {/* Book Showcase Billboard */}
             {/* Grid Layout */}
-            <div className="flex-1 bg-white text-black p-8">
+            <div className="flex-1 bg-gradient-to-b from-slate-200 to-slate-400 text-black p-8">
 
 
-                <h2 className="text-2xl font-bold mt-7 mb-4"><FileSearchOutlined /> ผลลัพธ์การค้นหา</h2>
+                <h2 className="text-2xl font-bold mt-7 mb-4">[<FileSearchOutlined />] ผลลัพธ์การค้นหา</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 {/* {array_basic_data.AnimeTitle.length > 0 ? */}

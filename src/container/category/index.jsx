@@ -181,12 +181,12 @@ function Category() {
         <div className="bg-black min-h-screen flex flex-col">
             {/* Book Showcase Billboard */}
             {/* Grid Layout */}
-            <div className="flex-1 bg-white text-black p-8">
+            <div className="flex-1 bg-gradient-to-b from-slate-200 to-slate-400 text-black p-8">
                 
                 <div className="bg-gray-300 text-white mt-1 p-4 rounded-lg mb-6">
                     <div className="flex items-center justify-center">
                         <h2 className="text-black text-lg font-semibold">
-                            <label htmlFor="category" className="mr-2">Sort By: </label>
+                            <label htmlFor="category" className="mr-2">เรียงโดย: </label>
                             <select
                                 name="feature"
                                 id="feature"
@@ -198,7 +198,7 @@ function Category() {
                             </select>
                         </h2>
                         <h2 className="text-black text-lg font-semibold">
-                            <label htmlFor="category" className="mr-2">Categories: </label>
+                            <label htmlFor="category" className="mr-2">หมวดหมู่: </label>
                             <select
                                 name="category"
                                 id="category"
@@ -216,7 +216,7 @@ function Category() {
                             </select>
                         </h2>
                         <h2 className="text-black text-lg font-semibold">
-                            <label htmlFor="status" className="mr-2">Author: </label>
+                            <label htmlFor="status" className="mr-2">ผู้เขียน: </label>
                             <select
                                 name="status"
                                 id="status"
