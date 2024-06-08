@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 //component
 import PopupAddEbook from "../../components/popup/addEbook";
 import PopupUpdateEbook from "../../components/popup/updateEbook";
+import Footer from "../../components/footer";
 
 //api
 import fetchArrayBasicInfo from "../../../api/fetch/fetchArrayBasicInfo";
@@ -132,42 +133,43 @@ function Admin() {
   
     return (
         <>
-            <div className="bg-white">
+            <div className="bg-gradient-to-b from-slate-200 to-slate-400 pb-1">
                 
                 <SessionNav Logout={handleLogout} User_image={`data:image/jpeg;base64,${admin_data.image}`}/>
                 
                 <div className="container mx-auto mt-8">
-                <h1 className="text-5xl text-black mt-12 mb-10 text-center">e-Book Management [<span className="text-amber-500">{admin_data.username}</span>]</h1>
+                    <h1 className="text-5xl text-black mb-10 text-center">ระบบจัดการ e-Books <span className="text-amber-500">[{admin_data.username}]</span></h1>
 
                 </div>
 
                 <div className="container mx-auto mt-8 mb-10">
-                {/* Responsive ตรงนี้ให้เหลือ col-2 ตอนจอเล็ก */}
-                <div className="grid grid-cols-6 gap-x-14 gap-y-6 bg-white p-4">
-                    {array_basic_data.EbookTitle.map( (title, index) => (
-                    <div key={title} className="rounded-md flex flex-col justify-between bg-gray-300 shadow-lg p-4">
-                        <img src={`data:image/jpeg;base64,${array_basic_data.image[array_basic_data.EbookTitle.length - 1 - index]}`} className="w-full h-full object-cover mb-2 rounded-3xl shadow-md" />
-                        <div className="text-black text-sm font-semibold py-1 mb-2 truncate">{array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]}</div>
-                        <div className="flex justify-between">
-                            <button className="bg-red-500 anihover hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onClick={() => { if (window.confirm("Are you sure you want to delete this book?")) {handleDeleteEbook(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]);}}}>Delete</button>
-                            {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onClick={() => handleEdit(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}>ปลอม</button> */}
-                            <PopupUpdateEbook
-                                onSubmit={handleSubmit_update}
-                                genre={array_genre}
-                                title={array_basic_data.EbookTitle[array_basic_data.EbookTitle.length -1 - index]} />
+                    <h1 className="text-2xl font-bold mb-4 text-black">รายการ e-Books ทั้งหมด <span className="text-amber-500"></span></h1>
+                    <div className="rounded-md mb-5">
+                        <PopupAddEbook onSubmit={handleSubmit_create} genre={array_genre}/>
+                    </div>
+                    {/* Responsive ตรงนี้ให้เหลือ col-2 ตอนจอเล็ก */}
+                    <div className="grid grid-cols-6 gap-x-14 gap-y-6 mb-10">
+                        {array_basic_data.EbookTitle.map( (title, index) => (
+                        <div key={title} className="rounded-md flex flex-col justify-between">
+                            <img src={`data:image/jpeg;base64,${array_basic_data.image[array_basic_data.EbookTitle.length - 1 - index]}`} className="w-full h-full object-cover mb-2 rounded-3xl shadow-md" />
+                            <div className="text-black text-sm font-semibold py-1 mb-2 truncate">{array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]}</div>
+                            <div className="flex justify-between">
+                            <button className="bg-red-500 anihover hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500" onClick={() => { if (window.confirm("คุณแน่ใจอ่อที่จะลบ?")) {handleDeleteEbook(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]);}}}>ลบ</button>
+                                {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onClick={() => handleEdit(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}>ปลอม</button> */}
+                                <PopupUpdateEbook
+                                    onSubmit={handleSubmit_update}
+                                    genre={array_genre}
+                                    title={array_basic_data.EbookTitle[array_basic_data.EbookTitle.length -1 - index]} />
 
+                            </div>
                         </div>
+                        ))}
+                        {/* Add button */}
                     </div>
 
-                    ))}
-                    <div className="flex justify-center items-center text-1xl rounded-md bg-gray-300 shadow-lg p-4">
-                    <PopupAddEbook onSubmit={handleSubmit_create} genre={array_genre}/>
-                    </div>
-                    {/* Add button */}
-                </div>
-                
                 </div>
             </div>
+            
         </>
     );
 }

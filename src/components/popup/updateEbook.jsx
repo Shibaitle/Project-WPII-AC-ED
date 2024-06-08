@@ -142,7 +142,7 @@ const PopupUpdateEbook = ({ onSubmit, genre, title}) => {
         <div>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 anihover"
         onClick={togglePopup}
-        >Edit
+        >แก้ไข
         </button>
         {isOpen && (
             <div className="fixed z-50 inset-0 flex items-center justify-center backdrop-filter backdrop-blur-lg">
@@ -282,7 +282,7 @@ const PopupUpdateEbook = ({ onSubmit, genre, title}) => {
                         ยกเลิก
                     </button>
                     <button
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-3 focus:outline-none focus:shadow-outline anihover"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline anihover mr-4"
                         type="submit"
                     >
                         อัพเดต

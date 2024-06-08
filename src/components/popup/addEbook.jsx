@@ -136,9 +136,9 @@ const PopupAddEbook = ({ onSubmit, genre }) => {
         <div>
         <button
             onClick={togglePopup}
-            className="anihover bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 anihover"
         >
-            Add e-Book
+            เพิ่ม e-Book
         </button>
         {isOpen && (
             <div className="fixed z-50 inset-0 flex items-center justify-center backdrop-filter backdrop-blur-lg">
@@ -169,7 +169,7 @@ const PopupAddEbook = ({ onSubmit, genre }) => {
                         type="text"
                         value={ebookName}
                         onChange={(e) => setEbookName(e.target.value)}
-                        placeholder="book title"
+                        placeholder="book name"
                         required
                         />
                 </label>
@@ -197,7 +197,7 @@ const PopupAddEbook = ({ onSubmit, genre }) => {
                         type="text"
                         value={authorName}
                         onChange={(e) => setAuthorName(e.target.value)}
-                        placeholder="author name"
+                        placeholder="author"
                         required
                         />
                 </label>
@@ -232,7 +232,7 @@ const PopupAddEbook = ({ onSubmit, genre }) => {
                     />
                 </label>
                 <label>
-                    <span className="text-base text-blue-500">เรทติ้ง (1-10)</span>
+                    <span className="text-base text-blue-500">เรทติ้ง</span>
                     <input
                         className="w-full text-black border border-gray-300 rounded-md px-3 py-2 mb-4 focus:outline-none focus:border-blue-500"
                         type="number"
@@ -280,7 +280,7 @@ const PopupAddEbook = ({ onSubmit, genre }) => {
                         ยกเลิก
                     </button>
                     <button
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mr-3 rounded focus:outline-none focus:shadow-outline anihover"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline anihover mr-4"
                         type="submit"
                     >
                         เพิ่ม

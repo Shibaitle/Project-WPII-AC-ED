@@ -177,7 +177,7 @@ const DetailEbook = () => {
         {user_data.username !== "Guest login" ? <SessionNav Logout={handleLogout} User_image={`data:image/jpeg;base64,${user_data.image}`} /> : <Nav/>}
         {isOpenWatch && (
             <Notification
-                message={`Added ${ebook_title} into Library`}
+                message={`ทำการเพิ่ม ${ebook_title} เข้าคลังสมุดเรียบร้อย`}
                 onOk={handleWatchListOK}
                 color_button={'bg-blue-500'}
                 color_hover_button={'bg-blue-600'}
@@ -186,7 +186,7 @@ const DetailEbook = () => {
 
         {isOpenWarning && (
             <Notification
-                message={`can not insert into Library you already add this ebook into Library`}
+                message={`ไม่สามารถเพิ่มเข้าคลังหนังสือได้ เนื่องจากคุณได้เพิ่มหนังสือเล่มนี้เข้าไปก่อนหน้านี้แล้ว`}
                 onOk={handleWatchListWarning}
                 color_button={'bg-red-500'}
                 color_hover_button={'bg-red-600'}
@@ -229,7 +229,7 @@ const DetailEbook = () => {
 
                         <div className="flex flex-col gap-2">
                             <div className="flex gap-4">
-                            <a href={`/read/${select_basic_data.EbookTitle}`}>
+                            <a href={`/read/${select_basic_data.EbookTitle}` } target='_blank'>
                                 <button
                                 className="text-center bg-green-500 text-white font-bold px-6 py-3 rounded-md anihover2"
                                 >

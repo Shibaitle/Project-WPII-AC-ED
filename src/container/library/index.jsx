@@ -1,13 +1,16 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cover from "../../../public/study.jpg";
 import Cover2 from "../../../public/happy.jpg";
 import not_found from "../../../public/not found.webp";
-import { FaBookReader } from "react-icons/fa";
+import { FaBookReader, FaTrash } from "react-icons/fa";
 
 import Nav from "../../components/navbar";
 import SessionNav from "../../components/navbar/NavbarSession";
+import delete_to_watch_list from "../../../api/other/delete_to_watch_list";
+
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -59,6 +62,15 @@ function Library() {
     const handleMoreInfo = () => {
         setToggleMoreInfo(!toggleMoreInfo)
     }
+
+    const handleDelete = (title) => {
+        
+        // alert("ลบแล้ว")
+        delete_to_watch_list(title)
+            .then(res => {
+                forceUpdate(Math.random());
+            })
+    };
 
     axios.defaults.withCredentials = true;
     
@@ -149,12 +161,21 @@ function Library() {
                             <h3 className="text-lg truncate font-semibold">{array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index]}</h3>
 
                             <p className="text-sm truncate">{array_basic_data.genre_2d_array[array_basic_data.EbookTitle.length - 1 - index].map((element, i) => i < array_basic_data.genre_2d_array[array_basic_data.EbookTitle.length - 1 - index].length - 1 ? element + ", " : element)}</p>
-                            <button
-                              className="text-center bg-green-500 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg mt-4 items-center"
-                              onClick={() => handle_navigate_to_detail(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}
-                            >
-                            <ReadOutlined />
-                            </button>
+                            <div className="flex justify-between">
+                                <button
+                                className="text-center bg-green-500 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg mt-4 items-center"
+                                onClick={() => handle_navigate_to_detail(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}
+                                >
+                                    <ReadOutlined />
+                                </button>
+
+                                <button
+                                className="text-center bg-red-500 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg mt-4 items-center"
+                                onClick={() => handleDelete(array_basic_data.EbookTitle[array_basic_data.EbookTitle.length - 1 - index])}
+                                >
+                                    <FaTrash />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))

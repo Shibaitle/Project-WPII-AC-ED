@@ -10,6 +10,7 @@ import ReadEbook from "./container/pdf/index.jsx";
 import SearchResult from "./container/search-result/index.jsx";
 import Library from "./container/library/index.jsx";
 import Category from "./container/category/index.jsx";
+import UserProfile from "./container/user-profile/index.jsx";
 import DetailEbook from "./container/detail_book/index.jsx";
 // import Test from "./container/detail_book/test.jsx";
 
@@ -41,10 +42,10 @@ const router = createBrowserRouter([
     path:'/detail/:ebook_title', 
     element: <DetailEbook/>
   },
-//   {
-//     path:'/test', 
-//     element: <Test/>
-//   },
+  {
+    path:'/user_profile', 
+    element: <UserProfile/>
+  },
   {
     path: '/read/:ebook_title',
     element: <ReadEbook/>
