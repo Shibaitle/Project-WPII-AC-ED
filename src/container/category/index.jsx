@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -238,7 +239,7 @@ function Category() {
                 {/* {array_basic_data.AnimeTitle.length > 0 ? */}
                 {array_basic_data.EbookTitle.length > 0 ?
                 array_basic_data.EbookTitle.map( (title, index) =>(
-                    <div className="bg-gray-300 rounded-lg shadow-lg p-8 anihover">
+                    <div className="bg-gray-300 rounded-lg shadow-lg p-8 anihover border-2 border-black">
                         <div className="w-full h-80 object-cover mb-2 relative">
                             <div className="absolute inset-x-0 -top-3">
                             <div className="flex justify-center items-center">
